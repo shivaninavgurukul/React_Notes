@@ -1,0 +1,1341 @@
+Javascript  -  Day 18 : Oct 10 ,2022 
+-------------------------------------
+
+-> Webpage : Login page  (Username , PAssword , Logioon button) 
+
+	HTML + CSS + JS 
+
+	HTML - to design the structure of the login page 
+
+		  - static webpage ( to display the content) 
+
+		  - html elements  <section> , button , form , input type =text , password, label 
+
+
+	CSS - styling the webpage 
+
+		 - Margin , padding, border, background, color , font, decoration , effects , gradient 
+
+
+
+	JS  - for interactive web page design ( dynamic webpage) 
+		
+			button --  click()  ---- event  ------ action /code to execute (btn logic) 
+
+			
+			- scripts can be added : 
+			
+				* head   : add the external Js references  
+
+				* body  : the internal script logic 
+
+				* head and body  : both the references of JS can be added 
+
+	
+
+			- JS can be added as 
+
+				* internal Js  : <script> 
+
+				* external JS : <script type="text/javascript" src ='./sample.js' > 
+
+								  </script>
+
+
+		NOTE : All modern browsers do have built in JS engines by default  ( MS - Chakra , Google chromme - V6 ,.....) 
+
+
+
+
+	** Exception Handling in JS :
+
+	--------------------------------
+
+
+			- Exception :  handle a code with an error 
+
+
+		// function statement 
+		
+		function add(a,b){
+			return a+b;
+		}
+
+
+		
+
+		//call the function 
+		console.log(add(34,45));
+		console.log(add(34,4.5));
+
+
+
+		function div(a,b){
+			return a/b;
+		}
+	
+		//call the function div
+		console.log(div(345,5));  // output : 69
+		console.log(div(0,12));  // output :0
+
+		console.log(div(34,0));  //output : error ------> exception ( unusual behaviour of the program)
+
+
+		handle the exception : 
+
+		rule : 	the second number should not be zero 
+
+		use : 
+			*** try  : used to hold the logic where ther is a chance of an exception  
+						: single block 
+
+			*** catch  : When there is an exception occurred then the catch block is executed .  
+							: multiple blocks 
+
+			*** finally : the code to be executed even when there is an exception or not 
+								ex: release the memory , garbage collection, database objects, 
+									 connection to db closed  etc  
+							: single block 
+
+		Syntax: 
+		-------
+
+			try{
+
+				//// logic 
+
+			}
+
+			catch(Exception e){
+				// handle the exception 
+
+			}
+
+			finally(){
+				// with or without exception 
+
+			}
+
+		Example: 
+		---------
+
+		function div(a,b){
+
+			//check the condition of the second number 
+			try{
+				if(b>0){
+
+					return a/b;
+
+					//.....
+				}
+
+			}
+			//specific
+			catch(FormatException ){
+				//input is in correct format 
+			}
+
+			//specific
+			catch(DivideByZero ){
+				//number divided by zero
+			}
+
+			//generic
+			catch(Exception e){
+					console.log(e.message);
+			}
+
+			finally {			
+
+			}
+
+		}
+
+		//function calling 
+		div(4,'hello');
+
+		div('abc',3); 
+
+		div(45,0);
+
+				
+
+		Exception --- base class (parent class) 
+			|
+		-------------------------------------------
+		|           |				| 					|
+	DivideByZero	Format 			Arithmetic 		.........
+
+
+** throw exception : Throw is a keyword used to throw an custom exception . 
+
+
+Activity : Create a registration page with fields like username , password, confirm password , age, doj, stream  . 
+
+		Login and Reset buttons
+
+		implement the exception handling over the password , confirm password [ same] and age fields [18-24]
+
+		30 mins  duration 
+
+
+		
+Activity on BOM :
+------------------
+
+ Perform multiplication of three numbers  using prompt box 
+
+
+ Document Object Model (DOM) :
+ ------------------------------
+
+
+
+**** END OF THE DAY **** 
+
+
+ReactJS  -  Day 19 : Oct 11 ,2022 
+-------------------------------------
+
+
+-> What is React JS 
+
+-> What is Full stack development 
+
+-> What is No sql database 
+
+-> FEatures of React JS 
+
+-> Virtual DOM 
+
+-> Installation of Node JS 
+
+
+	** Verify nodejs 
+
+	- Open the command promot from the start menu 
+	- Provide the command  node -v (it will give the version of the node js installed )
+	- 
+
+-> Install React JS 
+
+	** Path : Aarambh / ReactJS Demos / myapp (project)
+
+	** Provide the command  : npm install -g create-react-app (global)
+
+							: npm install create-react-app (local)
+
+-> Create a react project under the path aarambh/ reactjs demos : 
+
+							Syntax : create-react-app <projectname> 
+
+							Ex:  create-react-app myapp
+
+
+	NOTE : You will see a happy hacking message 
+
+
+-> Run the project :
+
+		1. Change the directory :  cd myapp
+
+		2. Run the project :   npm start
+
+
+		If compiled successfully message is shown , then open teh browser and provide the url http://localhost:3000 
+
+
+-> In order to create any other new project , the command is : create-react-app testapp
+
+
+
+
+
+-> Project folder structure : 
+
+	* node_modules : the path to the modules are entered in the node_modules folder 
+
+	* public : any images, scripts, index.html are avl for the entire application 
+
+		## index.html : main html file 
+
+
+	* src : the logic to be written . Any development we do , have to be done in this folder 
+
+
+		## App.js 		: javasccript file . (React uses JSX syntax -- html + js )
+
+		## App.css 		: stylesheet 
+
+		## index.js		: javascript file  ---- Main js file 
+
+		## index.css 	: stylesheet 
+
+		## App.test.js 	: script for the testing 
+
+		## logo.svg 	: scalable vector graphics 
+
+		## setupTests.js : testing configuration . Unit testing as JEST framework 
+
+		## reportWebvitals.js : web related information 
+
+	
+		## App.css , App.js , App.test.js ------ App is common --------- Component in React 
+
+	* package-lock .json : packages ( library files / modules wch contains the list of methods, classes , functions, properties in the package)
+						 wch are necessaryfor the react project to run successfully 
+
+		NOTE ::: npm install bootstrap --save :: explicitly you want to save the package in node_modules folder and the entry is avl in the package-lock.json 
+
+
+	* package.json : the dependecies reqd for the application 
+
+	* readme.md : gives the detail of the url to run the application http://localhost:3000/
+
+
+
+	What are components in ReactJS : A component in react is a working module which contains the logic in .js file , styles in .css file and testing in .test.js file 
+
+				Hello Component  ------ Hello.js (mandatory)
+										Hello.css	
+										Hello.test.js
+
+				Testing Component  ------- Testing.js , Testing.css (development )
+										Testing.test.js (unit testing)
+
+				Employee Component --------  Employee.js 
+
+	How many componennts are there by default in the reac tproject ? 
+
+		- App.js 
+		- index.js  (Main component )
+
+		Becoz, index.js is responsible to load the index.html --- output  
+
+
+React Project workflow 
+-------------------------
+
+		Step 1: from App.js the entire logic is displayed -------------> <App/> (App compoennt )
+		Step 2:  from App compoennt ------->in index.js ---> document.getElementByID('root') 
+		Step 3: From index.js file  ----- ----> avl in index.html file ( <div id="root"></div>)
+		Step 4 : Output is rendered on the browser with index.html file 
+		
+
+
+
+ES 6 features :
+---------------
+
+	-> Keywords : let and const 
+
+		let - to declare a variable 
+			  scope is block scope variable 
+
+		const  - to declare a constant 
+				scope is block scope 
+
+		var - to declare a variable 
+				scope is function scope 
+
+
+
+	-> classes in ES6 
+
+		* to create objects 
+		* can be a blueprint of real time objects 
+		* contain properties , methods , variables, constructor 
+		* constructor : special method of a class used to initialize the variables 
+		* class keyword is used to create a class 
+		* To create an object use "new" keyword 
+
+
+	Activity : Create a Product class and intialize the variables pid,pname,price using constructor . 
+				Display the details using the method getProductDetails() 
+
+
+	-> Inheritance : 
+
+		Creating a new class from an existing class ( Ex: Creating a new emplyee type class from an exisitng Employee class)
+
+			new class  : Dervied class / Child class  ( all base class valkes + new values)
+			existing class : Base class / Parent class 
+
+		* to create a new class from an existing class , use "extends" keyword
+		* to create a derived class 
+		* derived class can access the base class methods using " super" keyword  
+		* constructor in derived class shoudl pass the values to the base class constructor also 
+	
+
+
+ReactJS  -  Day 20 : Oct 12 ,2022 
+-------------------------------------
+
+-> Functions in ES6 : 
+
+
+	function in JS :   function name(){ .... }
+
+
+	arrow functions are introduced in ES6 : 
+
+		- no function keyword 
+		- no function name 
+
+		var result = ()=>{....}
+
+
+	arrow functions can be in a single line or multiple lines 
+
+
+-> DEfault values in function :
+
+
+-> Destructuring an array : 
+
+	var array1 = new Array [ 1,2,3,4];  (or) 
+
+	var arr = [11,22,33];
+
+	console.log(array1[1]);
+
+
+-> Spread operator :  to spread the values into arguments 
+					 represented as  '...'
+
+		 full stack -  presentation + business + data access 
+
+		 presentation : [html ,css , js , react , angular , bootstrap ]
+
+		 business : [nodejs  , java , .net, python ]
+
+		 data access : [mongodb, sql , oracle, cassandra ]
+
+		 spread operator to represent the full stack 
+
+		 full stack = [...presentation  + ...business + ...data ]
+
+
+
+React JS Components :
+----------------------
+
+1. Create a file with the name of the component with .js extension  under src folder of the react project 
+
+	src / Hello.js 
+
+	Rule : Create the name of the component with uppercase only 
+
+2. Write the component logic 
+
+
+	A component is made up of three sections 
+
+		- Import : contians any files/ packages to be used in the component 
+
+		- Class : create the class with the classname as the component name 
+					create the component with constructor , methods 
+					create the compinent with html elements 
+
+		- Export : to reuse this component in some other file 
+
+			export default Hello;
+
+3. Structure of a component 
+
+	//import section 
+	import React, {Component} from 'react';
+
+	//class section 
+	class Hello extends Component{
+
+    	//render method - to display the output 
+    	render(){
+        	return(
+            	<div>
+                	<h1> HELLO COMPONENT</h1>
+            	</div>
+        	)
+    	}
+	}
+
+	//export section  -- component is ready to be reused in another files 
+	export default Hello;
+
+	Output : Created with Hello component
+
+
+Activity: Create a Test component. follow the same steps as hello component
+
+
+ReactJS  -  Day 21 : Oct 13 ,2022 
+-------------------------------------
+
+-> Props and States in components 
+
+
+	Props : Properties in a component (data)
+
+			Passed from parent component to child component 
+
+			To access the props from the parent component and display in the child component 
+
+			Use the representation as  {this.props.empid}
+
+			Child component can only read the data 
+
+			Child component cannot modify the data 
+
+
+	Create Employee component  and display - " This is Employee Component "
+
+
+Activity : Create a Course component and display the following details as props 
+
+		CourseID , Coursename , CourseDuration
+		
+
+	States : States are the data for the component 
+
+			Source and Destination is the component itself 
+
+			No relation for the states like props (parent - child)
+
+			Represent the states  as {this.state.name}
+
+			Initialize / Assign the state data as : in the constructor 
+
+			Modify the state data  : setState() 
+
+
+		To create a state variable , follow the below steps 
+		----------------------------------------------------
+		
+			//Step1 : Create the constructor
+			constructor(){
+				
+				//Step 2: access the base class constructor 
+				super();
+				
+				//Step 3: Initialize the state variable 
+				this.state={
+					pid:'P100'
+				}
+			}
+
+
+		-> Lists 
+
+
+		-> Condition Render 
+
+
+		-> Keys :
+
+		-> Callback functions : 
+
+			A function  when it is passed as a parameter to another function then is called as a callback function
+
+				//sijmple function 
+			function name(a,b){}
+
+				//nested function 
+			function f1(){
+
+				...
+
+				function f2(){
+					....
+				}
+			}
+
+				//callback function 
+			function name(add(){
+
+			})
+
+			rule : callback functions are represented as an arrow function 
+			-----------------------------------------------------------------
+
+			function name (function age(){ }){
+
+			}
+
+			function name ( ()=>{
+				.....
+			})
+====================================== End of the day =====================================
+
+
+ReactJS  -  Day 22 : Oct 14 ,2022 
+-------------------------------------
+
+-> High Order Component : (HOC) 
+
+	 Inheritance -- properties / methods  from parent to child  
+	 			 -- REUSABILITY 
+
+				 -- Example of parent class - Employee , child class  - Contract Employee
+
+	In React JS , create a new component by reusing from an existing component 
+
+
+	The new component which will perform this technique is called as  High Order Component (HOC) 
+
+
+	Create :
+	----------
+
+		1. HOC are like functions 
+
+		2. input  :  component is passed as an input 
+
+		3. output : component with more additional features 
+
+
+
+	Anonymous class : A class with out a name is called as an anonymous class 
+
+	Anonymous function : A function without a name is called an anonymous function 
+
+	//normal function 
+	function greet(){
+		..logic 
+	}
+
+	//anonymo function 
+	var result = function (){
+		..logic 
+	}
+
+	//call the anonymous function :::  console.log(result);
+
+
+	//anonymous class 
+	let classResult = class extends Component {
+		render(){
+			return(
+				//logic 
+			)
+		}
+	}
+
+
+	
+
+	//Understand the flow of HOC : 
+
+		App.js -----> <HOC/> ---------> Import Hoc from './Hoc'; ----------->  render() in the component  
+			-------> return the values displayed in the return statement 
+			-------> <h1>High Order Component </h1> 
+			-------> <ButtonComp/> ------> Becoz we are in the same file 
+			-------> let ButtonComp = HOCChild(Buttonfn);
+			------->  let HOCChild = (HOCBase)=> class extends Component {
+						render(){
+							return(
+								<div>
+									{/* Own features  */}
+									<h1> This is from the New component </h1>
+									<h3> Welcome to the HOC </h3>
+									<p> End of the HOC component </p>
+									<button> OUTPUT BTN</button>
+									{/* Base component features  */}
+									<HOCBase/>
+								</div>
+							)
+							}
+						}
+
+			-------> <HOCBase/>  ------->  let Buttonfn = ()=>{
+												return (
+													<button> InputBTN </button>
+												)
+											}
+
+			-------> The complete output elements are returned in the same sequence 
+
+	Activity : Create Password as an HOC Component 
+				Child compponent - message " I'm PAssword HOC Component 
+				Base Component - login screen ( USername , password , login btn )
+
+
+				20 mins time 
+
+
+
+				<br> </br>  ====> <br/>  <hr/>
+				
+				<p styles align > jdjdhkdjkjhf</p>
+
+
+
+				function add(a,b){...}
+
+				add(3,4); //7
+
+				add(55,66); //121
+
+
+
+		====================================== End of the day =====================================
+
+
+ReactJS  -  Day 22 : Oct 17 ,2022 
+-------------------------------------
+
+
+-> Routing in React JS application : 
+
+
+	* Routing : is a concept to well organise the react components . It also helps to navigate from one component to another 
+				Single PAge web apps require easy way of navigation 
+
+
+
+	* Three important modules in React : 
+
+		- react-router :
+			
+
+		- react-router-dom : 
+
+
+		- react-router-native: 
+
+
+	Demo : Create a new react project : routingapp under reactdemos folder 
+	----------------------------------------------------------------------
+
+
+	1. Create a new react project : create-react-app routingapp
+
+	2. Change the directory : cd routingapp
+
+	3. start running the project : npm start 
+
+	4. Create 4 components in the routing app project 
+
+		- Home Component : 
+
+		- Login Component :
+
+		- AboutUs Component : 
+
+		- Product Component : 
+
+	5. To implement routing  
+
+		(i) . Browser application : we require the packages / modules as 
+
+				install the react library 
+
+					npm install react-router-dom 
+
+		(ii) From react version 13 and above , the following changes to be done in the app.js file 
+		
+				We have to create the URL for the components 
+
+				Note: Decide the componennts invovled in the routing process and create the URL only for those components 
+
+
+			** Create the import statement of <BrowserRouter> in the app.js file 
+
+				import {BrowserRouter } from 'react-router-dom';
+
+
+			** Create the routes(URL) for the components that are involved in the routing  in app.js file 
+
+				(a)  import {Route} from 'react-router-dom';
+
+					In a combined step , we can use the import statemetn as 
+
+						import {BrowserRouter , Route} from 'react-router-dom';
+
+						import {BrowserRouter as Router, Route} from 'react-router-dom';  /// as rpouter is an alias name ( short cut) 
+
+
+
+				(B) To create a url (route) for a component 
+
+						<Route path="/" element={App} ></Route>   --- For App component  (default component )
+						<Route path="/login" element={Login} ></Route>  ---- For Login component
+
+
+			(iii) To create the Link to access the components 
+
+					Better approach to create the links are in the Nav component (newly create)
+
+
+					(A) Import the Link to create the links to the compoennts 
+
+						import {Link} from 'react-router-dom';
+
+					(B) Add the Link wiith "to" property with the same values as "path" property in the Route for the component 
+							<Link to="/home"> HOME </Link> &nbsp;&nbsp;
+
+					(C) Add the NAv component to the App compoennt
+
+
+
+
+Activity on Routing ---   10 mins 
+
+------------------------------------
+
+1. In the routingapp , 
+
+	- create a component called Employee -- design the component of your choice 
+
+	- Involve employee component in the routing 
+
+		Hint : Add the route in the app.js 
+			   Create a link in the Nav.js 
+
+
+
+Activity on Routing with data :
+---------------------------------
+
+1. In the Employee component  , 
+
+create 15 json documents with empid, ename, eage, elocation, eunit ( 5 keys)
+
+-Display the employee data in the table format with styles applied 
+
+
+------------------------------------------------- End of the day ----------------------------------------------
+------------------------------------------------- End of the day ----------------------------------------------
+
+ReactJS  -  Day 23 : Oct 18 ,2022 
+-------------------------------------
+
+
+-> Routing with child routes 
+
+
+	* Identify the components with the child routes 
+
+		Ex: Product  - Fashion , Electronics 
+
+		Parent component : Product 
+
+		Child component  : Fashion , Electronics 
+
+	* Change the route path to in App.js file 
+
+			Fashion : <Route path="/Product/Fashion" element="{<Fashion/>}" ></Route>
+
+			Electronics : <Route path="/Product/Electronics" element="{<Electronics/>}" > </Route>
+
+	* Change the Link accordingly  in Parent component 
+
+			Fashion : <Link to="/Product/Fashion"> Fashion </Link>
+
+			Electronics : <Link to="/Product/Electronics"> Electronics </Link>
+
+	* Where should the Link tags to be added 
+
+			Nav.js , App.js 
+
+			Product.js  (correct) --- parent component 
+
+Activity on child routes :
+--------------------------
+
+
+1. Create child components under Electronics - Mobiles , Printers, Laptops , Scanners
+
+	Implement the child routing  
+
+	Time  - 10 mins 
+
+
+
+
+** Routing with parameters :
+-----------------------------
+
+	passing the child routes can be managed with the parameters 
+
+	For Ex:  Products - Fashion , Electronics 
+
+			route with path : /products/id  where the id can be either fashion or electronics 
+
+			Tp pass a paramter to the route : 
+
+				<Route path="/products/:id  element={<ProductsParam/>} ></Route>
+
+				where :id is the paramter whose value can either be fashion or elctronics or any thing in future
+
+
+
+
+Axios :
+--------
+	* IT is an http client library 
+	* It workds asynchronously 
+	* It supports promise object  . also works asynchronously
+
+	* Promise object  in Javascript : will have either of the two outcomes
+	
+			- success : resolved output 
+			- failure : rejected output 
+
+	* represent  the promise object like 
+
+		function () .then(resolved ) .catch(rejected)
+
+1. Create a User component in the routing app 
+
+
+2. Involve the user component in the routing 
+
+
+3. Install axios in the routing app 
+
+	npm install axios --save-dev
+
+4.  Import the axios library asa	in the user component 
+
+		import axios from 'axios';
+
+5. Add the axios logic in the class constructor 
+
+
+constructor(){
+        super();
+
+        //invoke the axios call either get or post request 
+        axios.get("https://jsonplaceholder.typicode.com/users")
+        // success 
+             .then(
+                (response)=> {
+                    // We are using JSON.stringify () to convert the json object into string
+                    console.log("Entire response object " + JSON.stringify(response));
+                    console.log("Only data :" + JSON.stringify(response.data));
+                }
+            )
+        // failure 
+             .catch((error)=> console.log("Error occurred"))
+        // either success or failure 
+             .finally(console.log("End of Axios component "));
+             
+    }
+
+Activity on Axios :
+
+----------------------
+
+Create a Posts component and use axios and display the output in the console 
+The url to be used is  http://jsonplaceholder.typicode.com/posts
+
+------------------------------------------------- End of the day ----------------------------------------------
+
+
+ReactJS  -  Day 24 : Oct 19 ,2022 
+-------------------------------------
+
+-> State Management in React JS 
+
+	** states are varaibles defined within the component  ( to manage the data)
+
+	** States allow us to modify the data  - setState() 
+
+	** Can the state data be passed as props to another component ??   YES 
+
+	** Props :: rule is - allowed only in the Inheritance process ( parent  - child)
+
+	** Can the props be shared when there is no Inheritance relation ??? NO 
+
+	** REQUIREMENT ::: How do I pass the data from one component to other without any relation ?? 
+
+				STATE --- NO (not from one comp to another comp)
+
+				PROPS --- NO ( because there is no relation )
+
+
+
+		SOLUTION ??? 
+
+			Architectures that helps you to manage the data (state) across the application 
+
+				- FLUX   : architectural pattern  
+
+						 : Understanding how the pattern works 
+
+						 : Overview of Flux 
+
+							It is uni directional flow 
+
+						 Principles : 
+
+						 	Store  - multiple 
+
+								     to store the data/ state 
+
+									 logic to update  - mutable 
+
+							Action  - multiple 
+
+									 to trigger the user actions 
+
+
+							Dispatcher - single per application 
+
+										 input : actions 
+
+										 process : store 
+
+										 update / notify : store 
+
+										 output : component 
+
+
+						Flux flow : React View -----> Action ------> Dispatcher ------> Store --------> React View 
+
+				- REDUX  : architectural pattern 
+
+							- single store 
+
+							- helps to have the same data at all places 
+
+							- easy inter component communication 
+
+							- same data is shared across all components which can communicate 
+
+							- store has teh modifying capacity 
+
+
+
+						: Overview of Redux 
+
+						: Basic principles of redux 
+
+							- store 	:  place where data/.state is stored
+											single store 
+											immutable - non updateable / non changeable on its own 
+
+							- action 	: same as flux 
+										   user actions to trigger 
+										   when user interacts with the component (react view/ UI)
+											multiple actions 
+
+							- reducer 	:  are responsible to update the store
+											 
+										   input : action  , current state of the store (2 author) 
+										   output : updated store 
+
+
+							Reducer are similar to dispatcher with minor changes 
+
+									- dispatcher will take only action as an input 
+										reducer will take action + current state as an input 
+									- dispatcher are centralized with one 
+										reducers are multiple 
+									- store is updated on its own 
+										reducer is responsible to update the store
+
+						: Working example 
+
+
+							- Create a new react project :  create-react-app reduxapp
+
+							- Ensure the project is successfully created : cd reduxapp , npm start 
+
+							- Install the libraries under reduxapp project 
+
+									npm install redux react-redux 
+ZZzA
+								Note: package.json file , an entry is filled 
+							
+							- Prepare the redux folder structure under reduxapp project
+
+								Create the below folders in the src 
+
+									- actions : multiple 
+
+												Create an action for courses --- courseActions.js under actions folder  
+
+												Write the logic for courses in this file using functions 
+
+												Export the function 
+
+									- store : only one immutable store 
+
+												only reducer (rootReducer) is responsible to update the store 
+
+												create a store using createStore() is avl in redux library 
+
+												create  a file MyStore.js under stores folder 
+
+												write a function to configure the store it will return the state 
+
+													function configureStore(initialState){
+														return createStore(
+															rootReducer,
+															initialState
+														)
+													}
+
+									- reducers : multiple 
+
+													Craete a reducer for course action --- courseReducer.js under reducers folder 
+
+													Write the logic for courses in this file using function 
+
+														input  : action + current state 
+
+														output : updated state 
+
+													Export the function 
+
+
+												To combine all reducers in a single file - create index.js in the reducers folder 
+
+													we are going to use combineReducer() from redux library helps to merge all reducers in a single file 
+													
+													import the courseReducer in the index.js file 
+
+													//make it export ready to be used in the other files 
+													export default rootReducer;
+
+
+								- Create a Courses component in the src folder 
+
+									- prepare the structure of the component 
+
+									- //Import the actions to be triggered(invoking) in the component 
+										// courseActions is an alias name 
+										import * as courseActions from "./actions/courseActions";
+
+									- Create a state variable for teh course title
+
+									- Create the methods for the button click and textbox change event 
+
+------------------------------------------------- End of the day ----------------------------------------------
+
+
+
+
+	ReactJS  -  Day 25 : Oct 20 ,2022 
+	-------------------------------------
+
+Activity on Redux :
+-------------------
+
+-> Create  a new redux project name  "userreduxapp"
+
+-> Follow the same steps as mentioned earlier for the reduxapp 
+
+-> Perform the action with CREATEUSER 
+
+-> Do the proper naming convention for the users 
+
+
+
+
+SDLC ( Software DEvleopment Life Cycle ): 
+
+	-> Plan 
+
+	-> Analyze 
+
+	-> Design   :: HDD , LDD 
+
+		diagramatic approach 
+
+
+	-> Build / Development  :  code development 
+
+	-> Test 
+
+	-> Deploy 
+
+	-> Maintenance 
+
+
+Learnings on  Python , html , reactjs ----   Build the project / application phase 
+
+
+
+
+Testing :
+---------
+
+	It is  a phase which will improve the quality of the product by 
+
+		- finding the bugs 
+
+		- testing the performance 
+
+		- validating the input 
+
+		- accesibility 
+
+		- time complexity - how much time does teh page takes to load the content 
+
+
+	-> Testing a react component 
+
+	-> System testing 
+
+	-> Application testing 
+
+	-> Integration testing 
+
+	-> Security testing 
+
+	-> alfa testing 
+
+	-> Beta testing 
+
+	-> white box testing 
+
+	-> function al testing 
+
+	-> black box testing 
+
+	-> performance testing 
+
+	The quality Analysts will perform the testing process
+
+	Being a developer , one should knowthe minimum basic testing for the given requirements 
+
+	Basic level testing performed on the developed code by the developers is called Unit TEsting 
+
+
+	We are working on Front end application ( Single PAge Applications ) -
+		 Developer is also responsible to look into the fropnt end aspect 
+
+		 Perform the user input testing ( front end testing )
+
+
+	-> Unit TEsting : testing a component unit 
+
+	-> UI testing : testing the front end user interface 
+
+
+
+	Javascript testing tool --- JEST --- helpful in performin the unit testing of the react application 
+
+				--- developed by Facebook team 
+
+
+
+	Features of JEST : 
+
+		-Easy setup 
+
+		- Instant feedback 
+
+		- works with javascript  also the typescript 
+
+		- no configuration required for the react application 
+
+		- built in code coverage 
+
+
+			logic for addition of two numbers  ::  5 lines of code (LOC)
+
+			testing the addition of two numnbers :: perfect test case - all 5 lines of code  ( FULL CODE COVERAGE)
+
+												:: test case with only 2 loc ( PARTIAL CODE COVERAGE )
+
+
+	To install the jest framework to test javascript code follow the below process 
+
+	- Create a new folder "unittesting"
+
+	- in the command prompt / terminal - got to the unit testing folder 
+
+	- explicitly , we will create the package.json file 
+
+		command : npm init 
+		(allow  you to create the package of your own entries )
+
+		provide the entries to the keys 
+
+		finallly , it will create a package.json file under the directory
+
+		
+	- install the jest framework 
+
+		npm install jest --save-dev 
+
+		package-lock.json , node_modules folder gets created automatically 
+
+		Do the changes as below 
+
+				"scripts": {
+					"test": "jest"
+				},
+
+		you shd see an entry of jest in the package.json file under dev dependencies 
+
+
+
+	------------------------------------------------- End of the day ----------------------------------------------
+
+
+
+
+	ReactJS  -  Day 25 : Oct 21 ,2022 
+	-------------------------------------
+
+- Start creating the JS programs 
+
+	* Create productop.js 
+
+	* Write the logic 
+
+	* execute the file : node productop.js 
+
+
+- Test the JS programs 
+
+	* Create the test file for the JS file 
+		Ex: JS file < sample.js>
+
+		NOTE: The file export ready 
+
+		// In Javascript , we use module.exports to make the functions exported into another file 
+
+		module.exports = product;
+
+	* Naming convention is :  <JS filename> .test.js 
+
+		EX: sample.test.js
+
+		NOTE: The source logic file is imported correctly 
+
+
+		Use "require" keyword to import the files 
+
+		const sourcefile = require('./productop');
+
+
+	* Creating an array variable and test in Javascript 
+
+
+MAtchers in the JEST Library :
+
+	- they start with toBe 
+
+	- test null, nan, number, string, boolean, true, false, contain , equal, notequal 
+
+	- toBe(), toBeTruthy(), toBEFalsy(), toBeString(), toBeNan() .........
+
+
+	To test an individual file :: npm test <filename>
+
+- Create a react application 
+
+		create-react-app unittestapp
+
+
+- Test the react project with unit testing 
+
+		npm test 
+		
+	
